@@ -4,6 +4,8 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
+import { getMessaging } from "firebase/messaging";
+import { getRemoteConfig } from "firebase/remote-config";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,5 +27,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const storage = getStorage(app);
 const db = getFirestore(app);
+const messaging = getMessaging(app);
+const remoteConfig = getRemoteConfig(app);
 
 // const analytics = getAnalytics(app);
