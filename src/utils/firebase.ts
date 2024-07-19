@@ -1,10 +1,10 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, getApps, getApp, } from "firebase/app";
+import { getAnalytics, } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
-import { getMessaging } from "firebase/messaging";
+import { getMessaging,isSupported } from "firebase/messaging";
 import { getRemoteConfig } from "firebase/remote-config";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,12 +22,31 @@ const firebaseConfig = {
   measurementId: "G-VC1QNY0YT8"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const storage = getStorage(app);
-const db = getFirestore(app);
-const messaging = getMessaging(app);
-const remoteConfig = getRemoteConfig(app);
+let firebaseApp;
 
-// const analytics = getAnalytics(app);
+if (!getApps().length) {
+  firebaseApp = initializeApp(firebaseConfig);
+} else {
+  firebaseApp = getApp();
+}
+
+const initialize=async(firebaseApp:any)=>{
+const bool = await isSupported()
+if (bool) {
+  const messaging = getMessaging(firebaseApp);
+  const analytics = getAnalytics(firebaseApp);
+  
+}
+// const remoteConfig = getRemoteConfig(firebaseApp);
+}
+
+console.log("firebaseApp", firebaseApp);
+
+const auth = getAuth(firebaseApp);
+const storage = getStorage(firebaseApp);
+const db = getFirestore(firebaseApp);
+
+initialize(firebaseApp)
+
+export { firebaseApp, auth, db, storage };
+

@@ -1,11 +1,10 @@
 "use client"
 
-import { addDoc, collection, getFirestore } from "firebase/firestore"
-import { useRouter } from "next/navigation"
+import { addDoc, collection } from "firebase/firestore"
 import { useState } from "react"
+import { db } from "seek-solution/utils/firebase"
 
 const ProductAddPage = () => {
-    const db = getFirestore()
 
     const [name, setName] = useState("")
     const [price, setPrice] = useState(0)

@@ -1,12 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { collection, deleteDoc, doc, getDocs, getFirestore, limit, onSnapshot, orderBy, query } from "firebase/firestore";
-import ProductAddPage from "./add/page";
+import { collection, deleteDoc, doc, limit, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "seek-solution/utils/firebase";
 
 const ProductsPage = () => {
 
-    const db = getFirestore()
 
     const [intervalCount, setIntervalCount] = useState(0)
 

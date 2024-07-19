@@ -2,12 +2,10 @@
 import { getMessaging, getToken } from "firebase/messaging";
 
 const NotificationPage = () => {
-    const messaging = getMessaging();
-
 
     const getFcmAccessToken = async () => {
-        const token = await getToken(messaging, { vapidKey: "BEzXsGjt0ycBOPosuploJO08EEVAKiEknbHXyKkHUi724iX8zGB0c9MYJeABa6AyDqCFYRFhnjDoLHfZlDabp-I" });
-        console.log("token", token);
+        // const token = await getToken(messaging, { vapidKey: "BEzXsGjt0ycBOPosuploJO08EEVAKiEknbHXyKkHUi724iX8zGB0c9MYJeABa6AyDqCFYRFhnjDoLHfZlDabp-I" });
+        // console.log("token", token);
 
     }
 

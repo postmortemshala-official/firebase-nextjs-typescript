@@ -1,13 +1,13 @@
 "use client"
 import { useState } from "react"
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "seek-solution/utils/firebase";
 
 const SignInCompo = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const auth = getAuth();
 
     const handleSignin = async (e: any) => {
         e.preventDefault()

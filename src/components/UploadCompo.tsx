@@ -1,12 +1,12 @@
 "use client"
-import { getDownloadURL, getStorage, ref, TaskState, uploadBytes, uploadBytesResumable, UploadTask } from "firebase/storage";
+import { getDownloadURL,  ref, TaskState, uploadBytes, uploadBytesResumable, UploadTask } from "firebase/storage";
 import { useRef, useState } from "react";
+import { storage } from "seek-solution/utils/firebase";
 
 const UploadCompo = () => {
     const progressRef = useRef<HTMLProgressElement>(null as any)
     const uploadTaskRef = useRef<UploadTask>(null as any)
     const [status, setStatus] = useState<TaskState>("running")
-    const storage = getStorage();
 
     const handleUpload = async (files: FileList | null) => {
         if (!files) {
